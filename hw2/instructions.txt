@@ -1,0 +1,62 @@
+(0) In all of the following, when asked to catch an exception, catch the
+most specific exception type. Catching a parent class to the appropriate
+exception will not earn full credit.
+
+(1) A much wider variety of values would be representable if the
+numerator and denominator were long instead of int. Change each int in
+the program to long. This includes changing toInt() to toLong(). Compile
+and test.
+
+(2) Implement Comparable<Rational>. compareTo() should convert each
+Rational to double in order to avoid integer overflow. Do not use == to
+compare floating point values--not in this assignment, and not (almost)
+ever otherwise.
+
+Compile and test.
+
+(3) In the constructor add a test for zero denominator. If the
+denominator is zero, throw IllegalArgumentException with an appropriate
+message.
+
+Compile and test.
+
+(4) Add a sign() method to Rational that takes no arguments, but returns
+the sign of the receiver as an int: 1 if the Rational is positive, -1 if
+it is negative, and 0 if it is zero.
+
+Compile and test.
+
+(5) Create a class called OverflowException. Make it a subclass of
+ArithmeticException.
+
+(6) In times(), plus(), and negate() throw an OverflowException if the
+sign of the result of the calculation is wrong. You need to write the
+OverflowException, and it must extend ArithmeticException. The sign()
+method should be useful here, e.g., when adding two objects, if both are
+positive (sign() == 1) the sum should be positive. If both are negative,
+the sum should be negative. If either of these cases is false, throw an
+OverflowException.
+
+(7) Replace main() with code that uses Rational to perform the
+following, where x/y denoted a rational value with x as the numerator
+and y as the denominator:
+(7a) Show that 3/8 is less than 5/11, that 7/1 is greater than 7/2, and
+that 3/10 is the same as 6/20.
+(7b) Try to construct 1/0 as a Rational. Catch and display the exception
+caught.
+(7c) Try to negate Long.MIN_VALUE/1. Catch and display the exception
+caught.
+Note: The Long class has two constants, MIN_VALUE and MAX_VALUE, which
+are the smallest representable long and the largest representable long,
+respectively.
+(7d) Try to multiply 7 billion / 2 and 10 billion / 3. Catch and
+display the exception caught.
+Note: a billion is 1 followed by nine zeroes. This has to be written as
+a long in Java: 1000000000L.
+(7e) Try to add Long.MAX_VALUE / 1 to 22/7. Catch and display the
+exception caught.
+
+(8) At the very end of main(), output a message indicating successful
+termination.
+
+Be sure to use @Override wherever appropriate.

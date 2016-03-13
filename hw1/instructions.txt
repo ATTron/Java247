@@ -1,0 +1,11 @@
+Provide a set of Java classes that implement ICoin.java. Each class must
+include a value() method that returns the number of cents a coin of that
+class is worth and a toString() method that overrides toString() in the
+Object class and returns the name of the coin. For example, in the
+Quarter class, value() would return 25 and toString() returns quarter.
+
+Provide classes called Penny, Nickel, Dime, and Quarter.
+
+Be sure to use @Override wherever appropriate.
+
+Test your code using the Driver class provided by the instructor. 

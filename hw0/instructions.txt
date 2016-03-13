@@ -1,0 +1,55 @@
+I would like to get some idea of the versions of Java that students in
+IS 247 are using. Thus, in this assignment, you will write to code tell
+me exactly that.
+
+Consider the class java.lang.System. You have used this class, e.g.,
+with System.out.print() and System.out.println(). The System class
+allows a program to learn certain things about it's environment. For
+example, most systems use a slash to separate components in a path name,
+but Windows uses backslash. It would be nice for a program to see which
+is correct (dirty little secret: in Windows, it's okay, arguably
+preferable, to use a slash, not a backslash).
+
+So how does a program learn the correct separator? The following line of
+code will produce it:
+
+  final String sep = System.getProperty("file.separator");
+
+There are a few other useful pieces of information that can be
+gleaned. Here is a short program:
+
+
+public class Ex0 {
+  public static void main(String[] args) {
+    System.out.println("file.encoding: "
+                       + System.getProperty("file.encoding"));
+    System.out.println("file.separator: "
+                       + System.getProperty("file.separator"));
+    System.out.println("os.name: "
+                       + System.getProperty("os.name"));
+    System.out.println("user.country: "
+                       + System.getProperty("user.country"));
+    System.out.println("user.language: "
+                       + System.getProperty("user.language"));
+  } // main()
+} // class Ex0
+
+The program output, when run in my office, looks like this:
+
+> java Ex0
+file.encoding: UTF-8
+file.separator: /
+os.name: Linux
+user.country: US
+user.language: en
+
+For this assignment, I want you to do something similar, except I am
+interested in the following properties:
+
+java.runtime.version, java.specification.version,
+java.vm.specification.version, and java.version.
+
+I also don't want you to use a string of println statements like in the
+example. Instead, place the property names in an array, loop over the
+items in the array, and for each output the name of the property and the
+value of the property.
