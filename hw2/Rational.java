@@ -1,4 +1,5 @@
 //Time-stamp: <2016-02-09 12:29:38 jdm>
+// Anthony Templeton program 2
 // this program creates and manipulates rational numbers
 public class Rational implements Comparable<Rational>{
 
@@ -14,14 +15,11 @@ public class Rational implements Comparable<Rational>{
     	final long gcd = gcd(num, den);
     	numerator = num / gcd;
     	denominator = den / gcd;
-    	try{
-    		if (denominator == 0){
-    			throw new IllegalArgumentException("Denominator cannot be 0");
-    		}// test for zero denominator
-    	}
-    	catch(IllegalArgumentException e){
-    		System.err.println(e);
-    	}
+    	
+    	if (denominator == 0){
+    		throw new IllegalArgumentException("Denominator cannot be 0");
+    	}// test for zero denominator
+    		
   } // constructor
 
   private static long gcd(final long a, final long b) {
@@ -40,14 +38,9 @@ public class Rational implements Comparable<Rational>{
   public Rational times(final Rational other) {
     Rational tRash = new Rational(numerator * other.numerator,
                         denominator * other.denominator);
-    try{
-    	if ((this.sign() == 1 && other.sign() == 1 && tRash.sign() != 1) || 
-    			(this.sign() == -1 && other.sign() == -1 && tRash.sign() != 1)){
-    		throw new OverflowException("Integer overflow error! Calculation failed (times error)");
-    	}
-    }
-    catch (OverflowException e){
-    	System.err.println(e);
+    if ((this.sign() == 1 && other.sign() == 1 && tRash.sign() != 1) || 
+    		(this.sign() == -1 && other.sign() == -1 && tRash.sign() != 1)){
+    	throw new OverflowException("Integer overflow error! Calculation failed (times error)");
     }
     return tRash;
     
@@ -58,15 +51,11 @@ public class Rational implements Comparable<Rational>{
 	  Rational pRash = new Rational(numerator * other.denominator
               + other.numerator * denominator,
               denominator * other.denominator);
-	  try{
-		  if((this.sign() == 1 && other.sign() == 1 && pRash.sign() != 1) || 
-				  (this.sign() == -1 && other.sign() == -1 && pRash.sign() !=-1)){
-			  throw new OverflowException("Integer overflow error! Calculation failed (plus error)");
-		  }
-	  }
-	  catch (OverflowException e){
-		  System.err.println(e);
-	  }
+	  
+	  if((this.sign() == 1 && other.sign() == 1 && pRash.sign() != 1) || 
+			  (this.sign() == -1 && other.sign() == -1 && pRash.sign() !=-1)){
+		  throw new OverflowException("Integer overflow error! Calculation failed (plus error)");
+	   }
 	  return pRash;
     
   } // plus()
@@ -75,14 +64,9 @@ public class Rational implements Comparable<Rational>{
   public Rational negate() {
 	  Rational nRash = new Rational(-numerator, denominator);
 	  
-	  try{
-		  if ((this.sign() == 1 && nRash.sign() == 1) || (this.sign() == -1 && nRash.sign() == -1)){
-			  throw new OverflowException("Integer overflow error! Cannot negate value (negation error)"
-			  		+ "");
-		  }
-	  }
-	  catch(OverflowException e){
-		  System.err.println(e);
+	  if ((this.sign() == 1 && nRash.sign() == 1) || (this.sign() == -1 && nRash.sign() == -1)){
+		  throw new OverflowException("Integer overflow error! Cannot negate value (negation error)"
+		  		+ "");
 	  }
 	  
     return nRash;
@@ -141,19 +125,42 @@ public class Rational implements Comparable<Rational>{
     System.out.println("Is " + a + " < " + b + "?" + " Should be negative. " + a.compareTo(b));
     System.out.println("Is " + c + " > " + d + "?" + " Should be positive. " + c.compareTo(d));
     System.out.println("Does " + e + " = " + f + "?" + " Should be zero. " + e.compareTo(f));
-
-    new Rational(1, 0);
-    new Rational(Long.MIN_VALUE, 1).negate();
+        
+    try{
+    	new Rational(1, 0);
+    }
+    catch(IllegalArgumentException error){
+    	System.err.println(error);
+    }
+    	
+    try{
+    	new Rational(Long.MIN_VALUE, 1).negate();
+    }
+    catch(OverflowException error){
+    	System.err.println(error);
+    }
     
     Rational sevenBill = new Rational(7000000000L, 2);
     Rational tenBill = new Rational(10000000000L, 3);
-    sevenBill.times(tenBill);
+    
+    try{
+    	sevenBill.times(tenBill);
+    }
+    catch(OverflowException error){
+    	System.err.println(error);
+    }
     
     Rational plusFail = new Rational(Long.MAX_VALUE, 1);
     Rational val = new Rational(22, 7);
-    plusFail.plus(val);
     
-    System.out.print("Rational program completed.");
+    try{
+    	plusFail.plus(val);
+    }
+    catch(OverflowException error){
+    	System.err.println(error);
+    }
+    
+    System.out.println("Rational program completed.");
 
   } // main()
   
