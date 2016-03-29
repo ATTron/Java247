@@ -19,7 +19,7 @@ public class FileReverser {
   public FileReverser(final String fileName) throws FileNotFoundException {
     in = new Scanner(new FileInputStream(fileName));
     out = new PrintStream("reversed-" + fileName);
-  }
+  }// FileReverser()
   
   public void readFile() {
 	String line;
@@ -57,7 +57,7 @@ public class FileReverser {
 		  System.err.println(e);
 	  }
 	  System.out.println("Operations Complete.");
-  }
+  }// main()
   
   
-}
+}// class FileReverser
