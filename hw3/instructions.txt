@@ -1,0 +1,42 @@
+IS 247, Martens, 28 March 2016
+Programming Assignment 3
+Reversing the Lines in a File
+Due on Blackboard at 23:59 Monday 4 April 2016
+
+
+Write a Java program that uses the Stack and Queue classes, and the
+IStack and IQueue interfaces, discussed in class to store the lines of a
+file in a queue and then to write the lines of the file in reverse order
+to another file, using a stack.
+
+See the example code for FileReverser.java. Note that the constructor
+uses a FileInputStream to initialize a Scanner to read from a specified
+input file. 
+
+The constructor also initializes a PrintStream object (the same type of
+object you are used to using as System.out) to write to the reversed
+file.
+
+Your task is to:
+
+(1) Add code to initialize the Queue and Stack to the constructor.
+
+(2) Write a void method readFile() that takes no parameters and reads
+the file, line-by-line. Each line will be placed in the
+queue. readFile() must close the Scanner when it is done reading.
+
+(3) Write a void method called writeFile() that transfers the lines from
+the queue to the stack, and then writes the contents of the stack to the
+output file. writeFile() must close the PrintStream when it is done
+writing.
+
+(4) Provide a main() that does the following:
+(4a) Prompt the user for the file name and read the file name.
+(4b) Create a FileReverser object.
+(4c) Call readFile() and writeFile() to create the reversed copy of the
+file.
+
+Note that this assignment can be done more efficiently without a
+queue. Use the queue anyway.
+
+Be sure to use @Override wherever appropriate.
