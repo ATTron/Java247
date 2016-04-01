@@ -22,7 +22,6 @@ public class FileReverser {
   }// FileReverser()
   
   public void readFile() {
-	String line;
 	while (in.hasNext()){
 		q.add(in.nextLine());
 	}
