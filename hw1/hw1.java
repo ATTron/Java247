@@ -5,6 +5,7 @@ public class hw1 {
 }// hw1()
 
 final class Penny implements ICoin {
+	@Override
 	public int value(){
 		return 1;
 	}// value()
@@ -17,6 +18,7 @@ final class Penny implements ICoin {
 }// Penny()
 
 final class Nickel implements ICoin{
+	@Override
 	public int value(){
 		return 5;
 	}// value()
@@ -29,6 +31,7 @@ final class Nickel implements ICoin{
 }// Nickel()
 
 final class Dime implements ICoin{
+	@Override
 	public int value(){
 		return 10;
 	}// value()
@@ -41,6 +44,7 @@ final class Dime implements ICoin{
 }// Dime()
 
 final class Quarter implements ICoin{
+	@Override
 	public int value(){
 		return 25;
 	}// value()
